@@ -35,6 +35,9 @@ app.use("/api", async (req, res, next) => {
 });
 
 app.use('/api', createProxyMiddleware({ target: 'http://localhost:3001/', changeOrigin: true }));
+app.get("/home", (req, res) => {
+    return res.json({message: "ok"});
+});
 
 app.listen(PORT, () => {
     console.log(`Server running at port ${PORT}`);
